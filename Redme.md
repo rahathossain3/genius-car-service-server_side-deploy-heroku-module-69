@@ -1,0 +1,36 @@
+## project basic/ starting code
+
+### index.js
+    // 1 & 2----------------
+        const express = require('express');
+    const cors = require('cors');
+    // for .env file
+    require('dotenv').config();
+
+    const port = process.env.PORT || 5000;
+
+    const app = express();
+
+    // 3 -------------------
+    //middleware
+    app.use(cors());
+    app.use(express.json());
+
+    // 4 ----------------
+    app.get('/', (req, res) => {
+        res.send('Running Genius server');
+    });
+
+
+    // 5-------------
+    app.listen(port, ()=>{
+        console.log('Listening to port', port);
+    })
+
+
+### packege.json
+
+* inside "script": 
+
+    "start": "node index.js",
+    "start-dev": "nodemon index.js",
