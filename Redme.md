@@ -34,3 +34,14 @@
 
     "start": "node index.js",
     "start-dev": "nodemon index.js",
+
+
+### .env file
+
+* code 
+        DB_User=geniusUser
+    DB_Pass=AQrvU8mYte9VjT5z
+
+* useing index.js
+
+    const uri = `mongodb+srv://${process.env.DB_User}:${process.env.DB_Pass}@cluster0.mdrpi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
