@@ -1,3 +1,7 @@
+.env file
+    DB_User=geniusUser
+    DB_Pass=AQrvU8mYte9VjT5z
+
 ## project basic/ starting code
 
 ### index.js
