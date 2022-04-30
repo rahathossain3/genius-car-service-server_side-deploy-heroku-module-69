@@ -22,7 +22,10 @@ async function run() {
     try {
         await client.connect();
         const serviceCollection = client.db('geniusCar').collection('service');
+        //new collection 2
+        const orderCollection = client.db('geniusCar').collection('order');
 
+        //service collection api----------
         // get all services
         app.get('/service', async (req, res) => {
 
@@ -60,8 +63,16 @@ async function run() {
             const result = await serviceCollection.deleteOne(query);
             res.send(result);
 
+        })
 
+        // order collection API ---------------------------
+        // post api
+        app.post('/order', async (req, res) => {
 
+            const order = req.body;
+            const result = await orderCollection.insertOne(order);
+
+            res.send('value')
         })
 
 
