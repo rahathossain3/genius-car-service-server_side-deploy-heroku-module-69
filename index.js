@@ -1,5 +1,8 @@
 const express = require('express');
 const cors = require('cors');
+// for jwt 
+const jwt = require('jsonwebtoken');
+
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const { query } = require('express');
 // for .env file
@@ -25,6 +28,22 @@ async function run() {
         const serviceCollection = client.db('geniusCar').collection('service');
         //new collection 2
         const orderCollection = client.db('geniusCar').collection('order');
+
+        // AUTH
+        app.post('/login', async (req, res) => {
+            const user = req.body;
+            const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {
+                expiresIn: '1d'
+            });
+
+            res.send({ accessToken });
+
+
+        })
+
+
+
+        // SERVICES API----********************
 
         //service collection api----------
         // get all services
