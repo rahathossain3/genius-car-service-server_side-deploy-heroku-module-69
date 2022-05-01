@@ -25,9 +25,11 @@
  * 3. git push heroku main
  * 
  * ------------------------------------
- * Connect Server with Client
- *  * ------------------------------------------
- * 
+ * Connect Server with Client and deploy client
+ * ------------------------------------------
+ * 1. replace localhost by heroku link
+ * 2. npm run build
+ * 3. firebase deploy 
  * 
  * 
  * 
