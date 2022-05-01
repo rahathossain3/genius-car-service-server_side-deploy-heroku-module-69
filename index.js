@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
+const { query } = require('express');
 // for .env file
 require('dotenv').config();
 
@@ -66,6 +67,19 @@ async function run() {
         })
 
         // order collection API ---------------------------
+
+        //get 
+        app.get('/order', async (req, res) => {
+            // get user wise data
+            const email = req.query.email;
+
+            const query = { email: email };
+            const cursor = orderCollection.find(query);
+            const orders = await cursor.toArray();
+            res.send(orders);
+
+        })
+
         // post api
         app.post('/order', async (req, res) => {
 
